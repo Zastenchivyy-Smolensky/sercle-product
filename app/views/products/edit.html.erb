@@ -1,2 +1,51 @@
-<h1>Products#edit</h1>
-<p>Find me in app/views/products/edit.html.erb</p>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        レシピ編集
+      </h1>
+    </div>
+  </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-6">
+                 <%= form_for @product do |f| %>
+                 <div class="field">
+                    <%= f.label :title,"アプリのタイトル", class:"label"%>
+                    <%= f.text_field :title, class:"input" %>
+                 </div>
+                 <div class="field">
+                    <%= f.label :content,"アプリの説明", class:"label" %>
+                    <%= f.text_area :content, class:"textarea" %>
+                 </div>
+                 <div class="field">
+                    <%= f.label :content,"技術", class:"label" %>
+                    <%= f.text_area :content, class:"textarea" %>
+                 </div>
+                 <div class="field">
+                    <%= f.label :content,"制作期間", class:"label" %>
+                    <%= f.text_area :content, class:"number" %>
+                 </div>
+
+                 <div class="field">
+                    <%= f.label :image,"アプリの写真", class:"label" %>
+                    <%= f.attachment_field :image, class:"input" %>
+                 </div>
+                <%= f.submit "投稿", class:"button is-success" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+                   
+
+                    
+
+                    
+
+                    
+               

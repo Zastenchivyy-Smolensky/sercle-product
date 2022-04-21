@@ -1,12 +1,36 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        新規レシピ作成
+      </h1>
+    </div>
+  </div>
+</section>
 
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-6">
+                <%= form_for @product do |f| %>
+                    <%= f.label :title,"アプリのタイトル", class:"label"%>
+                    <%= f.text_field :title, class:"input" %>
 
-<%= form_for @product do |f| %>
-  <%= f.label :title%>
-  <%= f.text_field :title %>
-  <%= f.label :content %>
-  <%= f.text_area :content %>
+                    <%= f.label :content,"アプリの説明", class:"label" %>
+                    <%= f.text_area :content, class:"textarea" %>
 
-  <%= f.label :image %>
-  <%= f.attachment_field :image %>
-  <%= f.submit%>
-<% end %>
+                    <%= f.label :content,"技術", class:"label" %>
+                    <%= f.text_area :content, class:"textarea" %>
+
+                    <%= f.label :content,"制作期間", class:"label" %>
+                    <%= f.text_area :content, class:"number" %>
+
+                    <%= f.label :image,"アプリの写真", class:"label" %>
+                    <%= f.attachment_field :image, class:"input" %>
+                    <%= f.submit "投稿", class:"button is-success" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
+

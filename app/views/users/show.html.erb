@@ -45,3 +45,51 @@
     </div>
 </section>
 
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @user.products.each do |product| %>
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <%= link_to product_path(product) do %>
+                                    <%= attachment_image_tag product, :image, fallback: "no-image.png" %>
+                                <% end %>
+                            </figure>
+                        </div>
+                            <div class="card-content">
+                                <div class="media">
+                                    <div class="media-content">
+                                        <%= link_to product_path(product), class: "panel-block" do %>
+                                            <span class="panel-icon">
+                                                <i class="fas fa-book" aria-hidden="true"></i>
+                                            </span>
+                                            このプロダクトを見る
+                                        <% end %>
+                                        <% if @user.id == current_user.id %>
+                                            <%= link_to edit_product_path(product), class: "panel-block" do %>
+                                                <span class="panel-icon">
+                                                    <i class="fas fa-edit"></i>
+                                                </span>
+                                                このプロダクトを編集する
+                                            <% end %>
+                                            <%= link_to product_path(product), method: :delete, data:{cofirm: "削除しますか?"}, class:"panel-block" do %>
+                                                <span class="panel0-icon">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                                このれしぷを削除する
+                                            <% end %>
+                                        <% end %>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <time><%= product.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+   </section>
