@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   attachment :profile_image
-  has_many :products, dependent: :destroy
-
   validates :username, presence: true
-  
+  has_many :products, dependent: :destroy
+  has_many :favorites
+  has_many :favorite_products, through: :favorites, source: :product
 end

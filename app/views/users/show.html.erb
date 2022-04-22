@@ -78,14 +78,19 @@
                                                 <span class="panel-icon">
                                                     <i class="fas fa-trash"></i>
                                                 </span>
-                                                このプロダクトを削除する
-                                            <% end %>
+                                                    このプロダクトを削除する
+                                                <% end %>
                                         <% end %>
                                     </div>
                                 </div>
+                               
                                 <div class="content">
                                     <time><%= product.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
                                 </div>
+                                <%= @favorite_products.each do |product| %>
+                                <hr>
+                                <p><span>ファボツイート</span><%= link_to product.content, product_path(product.id) %></p>
+                                <% end %>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: "home#index"
-  resources :products
+  devise_for :users
+  resources :products do
+    resource :favorites, only: [:create, :destroy]
+  end
   resources :users
 end

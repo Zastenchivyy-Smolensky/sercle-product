@@ -21,6 +21,17 @@
                             <% end %>
                           </figure>
                         </div>
+
+                        <% if user_signed_in? %>
+                            <% if product.favorited_by?(current_user) %>
+                                <p><span>いいね解除:</span><%= link_to product.favorites.count, product_favorites_path(product.id), method: :delete %></p>
+                            <% else %>
+                                <p><span>いいね登録:</span><%= link_to product.favorites.count, product_favorites_path(product.id), method: :post %></p>
+                            <% end %>
+                          <% else %>
+                          <p><span>いいね数</span><%= product.favorites.count%></p>
+                        <% end %>
+                        
                         <div class="media-content">
                             <div class="media">
                                 <div class="media-left">
