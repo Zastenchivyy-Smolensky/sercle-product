@@ -7,6 +7,18 @@
     </div>
   </div>
 </section>
+
+<% if @product.errors.any? %>
+  <div class="notification is-danger">
+    <h2><%= pluralize(@product.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+    <ul>
+      <% @product.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <section class="section">
     <div class="container">
         <div class="columns is-centered">
@@ -21,12 +33,12 @@
                     <%= f.text_area :content, class:"textarea" %>
                  </div>
                  <div class="field">
-                    <%= f.label :content,"技術", class:"label" %>
-                    <%= f.text_area :content, class:"textarea" %>
+                    <%= f.label :tech,"技術", class:"label" %>
+                    <%= f.text_area :tech, class:"textarea" %>
                  </div>
                  <div class="field">
-                    <%= f.label :content,"制作期間", class:"label" %>
-                    <%= f.text_area :content, class:"number" %>
+                    <%= f.label :span,"制作期間", class:"label" %>
+                    <%= f.text_area :span, class:"number" %>
                  </div>
 
                  <div class="field">
