@@ -24,10 +24,14 @@
 
                         <% if user_signed_in? %>
                             <% if product.favorited_by?(current_user) %>
-                                <p><span>いいね解除:</span><%= link_to product.favorites.count, product_favorites_path(product.id), method: :delete %></p>
+                               <%= button_to product_favorites_path(product),class:"fas fa-heart" ,method: :delete do %>
+                               <span><%= product.favorites.count%></span>
+                           <% end %>
                             <% else %>
-                                <p><span>いいね登録:</span><%= link_to product.favorites.count, product_favorites_path(product.id), method: :post %></p>
-                            <% end %>
+                               <%= button_to product_favorites_path(product),class: "far fa-heart", method: :post do %>
+                               <span><%= product.favorites.count%></span>
+                           <% end %>
+                         <% end %>
                           <% else %>
                           <p><span>いいね数</span><%= product.favorites.count%></p>
                         <% end %>

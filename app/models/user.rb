@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :favorites
   has_many :favorite_products, through: :favorites, source: :product
+  def already_favorited?(product)
+    self.favorites.exists?(product_id: product.id)
+  end
 end
