@@ -25,9 +25,9 @@
             </div>
               <% if current_user != user %>
                 <% if user.followed_by?(current_user) %>
-                    <p><%= button_to 'フォロー済み', user_relationships_path(user.id),method: :delete %></p>
+                    <p><%= button_to 'フォロー済み', user_relationships_path(user.id),class:"button is-success",method: :delete %></p>
                       <% else %>
-                    <p><%= button_to "フォローする", user_relationships_path(user.id), method: :post %></p>
+                    <p><%= button_to "フォローする", user_relationships_path(user.id), class:"button is-success",method: :post %></p>
                   <% end %>
               <% end %>
             <div class="card-content">

@@ -50,9 +50,9 @@
                                 </div>
                               <% if current_user != product.user %>
                                 <% if product.user.followed_by?(current_user) %>
-                                    <p><%= button_to 'フォロー済み', user_relationships_path(product.user.id), method: :delete %></p>
+                                    <p><%= button_to 'フォロー済み', user_relationships_path(product.user.id), class:"button is-success", method: :delete %></p>
                                   <% else %>
-                                    <p><%= button_to "フォローする", user_relationships_path(product.user.id), method: :post %></p>
+                                    <p><%= button_to "フォローする", user_relationships_path(product.user.id), class:"button is-success",method: :post %></p>
                                 <% end %>
                               <% end %>
                             </div>

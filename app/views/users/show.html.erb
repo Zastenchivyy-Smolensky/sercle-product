@@ -62,9 +62,9 @@
                         <p><%= link_to 'フォロワー', follows_user_path(@user.id) %></p>
                         <% if current_user != @user %>
                           <% if @user.followed_by?(current_user) %>
-                            <span><p><%= button_to 'フォロー済み', user_relationships_path(@user.id), method: :delete %></p></span>
+                            <span><p><%= button_to 'フォロー済み', user_relationships_path(@user.id), class:"button is-success" ,method: :delete %></p></span>
                             <% else %>
-                            <span><p><%= button_to 'フォローする', user_relationships_path(@user.id), method: :post %></p></span>
+                            <span><p><%= button_to 'フォローする', user_relationships_path(@user.id), class:"button is-success",method: :post %></p></span>
                           <% end %>
                         <% end %>
                             <div class="card-content">
