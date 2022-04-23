@@ -33,9 +33,11 @@
                            <% end %>
                          <% end %>
                           <% else %>
-                          <p><span>いいね数</span><%= product.favorites.count%></p>
+                          <p><i class="fas fa-heart"></i><%= product.favorites.count%></p>
                         <% end %>
+
                         
+
                         <div class="media-content">
                             <div class="media">
                                 <div class="media-left">
@@ -46,7 +48,16 @@
                                 <div class="media-content">
                                     <div class="title"><%= link_to product.user.username, user_path(product.user) %></div>
                                 </div>
+                              <% if current_user != product.user %>
+                                <% if product.user.followed_by?(current_user) %>
+                                    <p><%= button_to 'フォロー済み', user_relationships_path(product.user.id), method: :delete %></p>
+                                  <% else %>
+                                    <p><%= button_to "フォローする", user_relationships_path(product.user.id), method: :post %></p>
+                                <% end %>
+                              <% end %>
                             </div>
+
+
                             <div class="content">
                                 <time><%= product.updated_at.strftime("%Y-%m-%d %H:%M")%></time>更新
                             </div>
@@ -57,4 +68,3 @@
         </div>
     </div>
 </section>
-

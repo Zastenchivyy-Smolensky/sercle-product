@@ -1,0 +1,10 @@
+<% if current_user.already_favorited?(@product) %> 
+    <%= link_to product_favorites_path(@product), method: :delete, remote: true do %>
+    <i class="fas fa-heart"></i>
+<% end %>
+    <% else %>
+    <%= link_to product_favorites_path(@product), method: :create, remote: true do %>
+        <i class="far fa-heart"></i>
+    <% end %>
+<%= @product.favorites.count%>
+<% end %>

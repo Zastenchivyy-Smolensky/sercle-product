@@ -58,6 +58,15 @@
                                 <% end %>
                             </figure>
                         </div>
+                        <p><%= link_to 'フォロー', follows_user_path(@user.id) %></p>
+                        <p><%= link_to 'フォロワー', follows_user_path(@user.id) %></p>
+                        <% if current_user != @user %>
+                          <% if @user.followed_by?(current_user) %>
+                            <span><p><%= button_to 'フォロー済み', user_relationships_path(@user.id), method: :delete %></p></span>
+                            <% else %>
+                            <span><p><%= button_to 'フォローする', user_relationships_path(@user.id), method: :post %></p></span>
+                          <% end %>
+                        <% end %>
                             <div class="card-content">
                                 <div class="media">
                                     <div class="media-content">
@@ -89,7 +98,7 @@
                                 </div>
                                 <% @favorite_products.each do |product| %>
                                 <hr>
-                                <p><span>ファボツイート</span><%= link_to product.content, product_path(product.id) %></p>
+                                <p><span>ファボツイート</span><%= link_to product.title, product_path(product.id) %></p>
                                 <% end %>
                             </div>
                         </div>

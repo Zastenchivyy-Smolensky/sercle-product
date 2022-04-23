@@ -33,13 +33,13 @@
                   </tr>
                 </table>
                   <% if current_user.already_favorited?(@product) %>
-                    <%= button_to product_favorites_path(@product), method: :delete do %>
-                    <i class="fas fa-heart"></i>
+                    <%= button_to product_favorites_path(@product.id), method: :delete do %>
+                      <span><i class="fas fa-heart"></i></span>
                   <% end %>
                 <% else %>
-                  <%= button_to product_favorites_path(@product), method: :create do %>
-                  <i class="far fa-heart"></i>
-                  <% end %>
+                    <%= button_to product_favorites_path(@product.id), method: :create do %>
+                      <span><i class="far fa-heart"></i></span>
+                    <% end %>
                 <% end %>
                 <%= @product.favorites.count%>
                 <% if @product.user.id == current_user.id %>
