@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
   
   def index
     @products = Product.all
+    @products = @products.where('location LIKE ?', "%#{params[:search]}%") if params[:search].present?  #この行を追記
   end
 
   def show

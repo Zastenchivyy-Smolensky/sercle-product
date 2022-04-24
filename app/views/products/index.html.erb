@@ -7,7 +7,12 @@
     </div>
   </div>
 </section>
-
+<div class="row justify-content-end mb-3">
+  <%= form_for products_path, method: :get, local: true do |f| %>
+    <%= f.text_field :search %>
+    <%= f.submit "検索する", name: nil%>
+  <% end %>
+</div>
 <section class="section">
     <div class="container">
         <div class="columns is-multiline">
@@ -48,6 +53,7 @@
                                 <div class="media-content">
                                     <div class="title"><%= link_to product.user.username, user_path(product.user) %></div>
                                 </div>
+
                               <% if current_user != product.user %>
                                 <% if product.user.followed_by?(current_user) %>
                                     <p><%= button_to 'フォロー済み', user_relationships_path(product.user.id), class:"button is-success", method: :delete %></p>
