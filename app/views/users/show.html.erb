@@ -59,7 +59,7 @@
                             </figure>
                         </div>
                         <p><%= link_to 'フォロー', follows_user_path(@user.id) %></p>
-                        <p><%= link_to 'フォロワー', follows_user_path(@user.id) %></p>
+                        <p><%= link_to 'フォロワー',followers_user_path(@user.id) %></p>
                         <% if current_user != @user %>
                           <% if @user.followed_by?(current_user) %>
                             <span><p><%= button_to 'フォロー済み', user_relationships_path(@user.id), class:"button is-success" ,method: :delete %></p></span>
