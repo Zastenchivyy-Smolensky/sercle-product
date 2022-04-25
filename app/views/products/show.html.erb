@@ -32,7 +32,7 @@
                     <td><%= simple_format @product.content %></td>
                   </tr>
                 </table>
-                 <div id="product_<%= @product.id%>">
+                 <div id="favorite_buttons_<%= @product.id%>">
                     <%= render 'favorites/favorite', product: @product %>
                   </div>
                 <% if @product.user.id == current_user.id %>
@@ -75,7 +75,7 @@
       <%= link_to comment.user.username, user_path(comment.user.id) %>
       <%= comment.created_at.strftime('%Y/%m/%d') %> <br>
       <div class="d-flex">
-        <p><span>コメント内容</span><%= comment.comment%></p>
+        <p><%= comment.comment%></p>
         <% if comment.user == current_user %>
           <div class="comment-delete">
             <%= link_to "削除する", comment_path(comment.id), method: :delete  %>
