@@ -28,11 +28,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_110552) do
 
   create_table "products", force: :cascade do |t|
     t.integer "user_id"
-    t.string "title"
-    t.text "content"
-    t.string "image_id"
-    t.integer "span"
-    t.string "tech"
+    t.string "title", null: false
+    t.text "content", null: false
+    t.string "image_id", null: false
+    t.integer "span", null: false
+    t.string "tech", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

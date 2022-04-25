@@ -7,12 +7,7 @@
     </div>
   </div>
 </section>
-<div class="row justify-content-end mb-3">
-  <%= form_for products_path, method: :get, local: true do |f| %>
-    <%= f.text_field :search %>
-    <%= f.submit "検索する", name: nil%>
-  <% end %>
-</div>
+
 <section class="section">
     <div class="container">
         <div class="columns is-multiline">
@@ -26,23 +21,9 @@
                             <% end %>
                           </figure>
                         </div>
-
-                        <% if user_signed_in? %>
-                            <% if product.favorited_by?(current_user) %>
-                               <%= button_to product_favorites_path(product),class:"fas fa-heart" ,method: :delete do %>
-                               <span><%= product.favorites.count%></span>
-                           <% end %>
-                            <% else %>
-                               <%= button_to product_favorites_path(product),class: "far fa-heart", method: :post do %>
-                               <span><%= product.favorites.count%></span>
-                           <% end %>
-                         <% end %>
-                          <% else %>
-                          <p><i class="fas fa-heart"></i><%= product.favorites.count%></p>
-                        <% end %>
-
-                        
-
+                        <div id="product_<%= product.id%>">
+                          <%= render 'favorites/favorite', product: product %>
+                        </div>
                         <div class="media-content">
                             <div class="media">
                                 <div class="media-left">
@@ -54,6 +35,7 @@
                                     <div class="title"><%= link_to product.user.username, user_path(product.user) %></div>
                                 </div>
 
+                             <% if user_signed_in? %>
                               <% if current_user != product.user %>
                                 <% if product.user.followed_by?(current_user) %>
                                     <p><%= button_to 'フォロー済み', user_relationships_path(product.user.id), class:"button is-success", method: :delete %></p>
@@ -61,6 +43,8 @@
                                     <p><%= button_to "フォローする", user_relationships_path(product.user.id), class:"button is-success",method: :post %></p>
                                 <% end %>
                               <% end %>
+                            <% else %>
+                            <% end %>
                             </div>
 
 

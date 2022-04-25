@@ -1,13 +1,13 @@
 class FavoritesController < ApplicationController
   def create
-    favorite = current_user.favorites.build(product_id: params[:product_id])
+    @product = Product.find(params[:product_id])
+    favorite = current_user.favorites.build(product_id: @product.id)
     favorite.save
-    redirect_to products_path
   end
 
   def destroy
-    favorite = Favorite.find_by(product_id: params[:product_id], user_id: current_user.id)
+    @product = Product.find(params[:product_id])
+    favorite = current_user.favorites.find_by(product_id: @product.id)
     favorite.destroy
-    redirect_to products_path
   end
 end

@@ -23,6 +23,7 @@
                 </figure>
               </div>
             </div>
+             <% if user_signed_in? %>
               <% if current_user != user %>
                 <% if user.followed_by?(current_user) %>
                     <p><%= button_to 'フォロー済み', user_relationships_path(user.id),class:"button is-success",method: :delete %></p>
@@ -30,6 +31,7 @@
                     <p><%= button_to "フォローする", user_relationships_path(user.id), class:"button is-success",method: :post %></p>
                   <% end %>
               <% end %>
+            <% end %>
             <div class="card-content">
               <div class="media">
                 <div class="media-content">

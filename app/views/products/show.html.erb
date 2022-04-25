@@ -32,16 +32,9 @@
                     <td><%= simple_format @product.content %></td>
                   </tr>
                 </table>
-                  <% if current_user.already_favorited?(@product) %>
-                    <%= button_to product_favorites_path(@product.id), method: :delete do %>
-                      <span><i class="fas fa-heart"></i></span>
-                  <% end %>
-                <% else %>
-                    <%= button_to product_favorites_path(@product.id), method: :create do %>
-                      <span><i class="far fa-heart"></i></span>
-                    <% end %>
-                <% end %>
-                <%= @product.favorites.count%>
+                 <div id="product_<%= @product.id%>">
+                    <%= render 'favorites/favorite', product: @product %>
+                  </div>
                 <% if @product.user.id == current_user.id %>
                   <%= link_to '編集画面', edit_product_path(@product), class:"button is-success" %>
                 <% end %>
@@ -49,7 +42,6 @@
           </div>
         </div>
       </div>
-
     <div class="column is-4">
         <article class="panel is-link">
           <p class="panel-heading">
