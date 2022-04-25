@@ -32,7 +32,7 @@
                     <td><%= simple_format @product.content %></td>
                   </tr>
                 </table>
-                 <div id="favorite_buttons_<%= @product.id%>">
+                 <div id="favorite_buttons_<%= @product.id %>">
                     <%= render 'favorites/favorite', product: @product %>
                   </div>
                 <% if @product.user.id == current_user.id %>

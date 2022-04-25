@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
     <% if product.favorited_by?(current_user) %>
-            <%= link_to product_favorites_path(product),class:"fas fa-heart" ,method: :delete, remote: true do %>
+            <%= link_to product_favorites_path(product),class:"fas fa-heart" , method: :delete, remote: true do %>
             <span><%= product.favorites.count%></span>
         <% end %>
         <% else %>

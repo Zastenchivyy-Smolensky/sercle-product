@@ -15,7 +15,16 @@
                         
                             <td>
                                 <%= link_to user_path(user) do %>
-                                    <%= user.username%>
+                                
+                                <div class="column is-4">
+                                    <figure class="image is-128x128"  style="margin-left: auto; margin-right: auto;">
+                                        <%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", class: "profile_image is-rounded" %>
+                                    </figure>
+                                </div>
+                                
+                                   <td class="is-size-4">
+                                        <strong><%= user.username%></strong>
+                                    </td>
                                 <% end %>
                             </td>
                             <td>
