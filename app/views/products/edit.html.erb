@@ -45,6 +45,21 @@
                     <%= f.label :image,"アプリの写真", class:"label" %>
                     <%= f.attachment_field :image, class:"input" %>
                  </div>
+
+                 <div class="field">
+                    <%= f.label :github,"GitHubのリンク", class:"label" %>
+                    <%= f.text_area :github, class:"textarea" %>
+                 </div>
+
+                 <div class="field">
+                     <%= f.label :link,"GitHubのリンク", class:"label" %>
+                    <%= f.text_area :link, class:"textarea" %>
+                 </div>
+
+                 <div class="field">
+                    <%= f.label :commitment,"こだわり", class:"label" %>
+                    <%= f.text_area :commitment, class:"textarea" %>
+                 </div>
                 <%= f.submit "投稿", class:"button is-success" %>
                 <% end %>
             </div>

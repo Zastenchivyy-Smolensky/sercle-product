@@ -43,43 +43,31 @@
         <div class="navbar-item">
           <%= link_to 'プロダクト投稿', new_product_path, class: "navbar-item button is-warning is-light" %>
         </div>
-        <div class="narbar-end">
-          <div class="navbar-item">
-            <div class="field is-grouped">
-              <p class="control">
-                <%= link_to 'プログラマー一覧', users_path, class: "button is-warning is-light" %>
-              </p>
-              <p class="control">
-                <%= link_to 'マイページ', user_path(current_user), class: "button is-warning is-light" %>
-              </p>
-              <p class="control">
-                <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
-              </p>
-            </div>
-          </div>
+        <div class="navbar-item">
+          <%= link_to 'プログラマー一覧', users_path, class: "navbar-item button is-warning is-light" %>
+        </div>
+        <div class="navbar-item">
+          <%= link_to 'マイページ', user_path(current_user), class: "navbar-item button is-warning is-light" %>
+        </div>
+        <div class="navbar-item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "navbar-item button is-warning is-light" %>
         </div>
       </div>
       <% else %>
-      <div class="navbar-menu" id="navbarExampleTransparentExample">
+      <div class="navbar-menu" id="navbarMenuHeroC">
         <div class="navbar-item">
           <%= link_to "プロダクト一覧", products_path, class:"navbar-item button is-warning is-light" %>
         </div>
         <div class="navbar-item">
           <%= link_to "プログラマー一覧", users_path, class:"navbar-item button is-warning is-light" %>
         </div>
-        <div class="navbar-end">
-          <div class="navbar-item">
-             <div class="field is-grouped">
-              <p class="control">
-                <%= link_to 'ログイン', new_user_session_path, class: "button is-warning is-light"  %>
-              </p>
-              <p class="control">
-                <%= link_to '新規登録', new_user_registration_path, class:"button is-warning is-light" %>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+        
+              <div class="navbar-item">
+                <%= link_to 'ログイン', new_user_session_path, class: "navbar-item button is-warning is-light"  %>
+             </div>
+              <div class="navbar-item">
+                <%= link_to '新規登録', new_user_registration_path, class:"navbar-item button is-warning is-light" %>
+              </div>
      
     <% end %>
   </nav>

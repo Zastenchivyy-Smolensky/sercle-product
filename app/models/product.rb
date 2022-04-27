@@ -9,6 +9,7 @@ class Product < ApplicationRecord
         validates :tech
         validates :span
         validates :image
+        validates :commitment
     end
 
     def favorited_by?(user)

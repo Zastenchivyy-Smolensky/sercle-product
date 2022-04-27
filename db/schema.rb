@@ -33,6 +33,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_110552) do
     t.string "image_id", null: false
     t.integer "span", null: false
     t.string "tech", null: false
+    t.string "commitment", null: false
+    t.string "github"
+    t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_110552) do
     t.integer "follower_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|

@@ -7,7 +7,9 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :image_id, null: false 
       t.integer :span, null: false
       t.string :tech, null: false
-
+      t.string :commitment, null: false
+      t.string :github
+      t.string :link
       t.timestamps
     end
   end

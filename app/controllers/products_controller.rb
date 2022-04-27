@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
   
   def index
     @products = Product.all
-    @products = @products.where('location LIKE ?', "%#{params[:search]}%") if params[:search].present?  #この行を追記
+    @products = @products.where('location LIKE ?', "%#{params[:search]}%") if params[:search].present?
   end
 
   def show
@@ -48,6 +48,6 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:title, :content, :tech, :span, :image)
+      params.require(:product).permit(:title, :content, :tech, :span, :image, :github, :link, :commitment)
     end
 end
