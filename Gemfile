@@ -79,3 +79,4 @@ gem "bulma-rails"
 group :production do
   gem 'pg'
 end
+gem 'webpacker',    '~> 4.0'
