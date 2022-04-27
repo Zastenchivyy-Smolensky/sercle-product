@@ -1,16 +1,21 @@
 class CommentsController < ApplicationController
   def create
-    product = Product.find(params[:product_id])
-    comment = current_user.comments.build(comment_params)
-    comment.product_id = product.id
-    comment.save
-    redirect_to product_path(product.id)
+    @product = Product.find(params[:product_id])
+    @comment = current_user.comments.new(comment_params)
+    @comment.product_id = @product.id
+    if @comment.save
+      flash.now[:notice] = "コメントを投稿しました"
+      render :product_comments
+    else
+      render "products/show"
+    end
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-    redirect_to products_path
+    Comment.find_by(id: params[:id], product_id: params[:product_id]).destroy
+    flash.now[:alert] = "投稿を消去しました"
+    @product = Product.find(params[:product_id])
+    render :product_comments
   end
 
   private

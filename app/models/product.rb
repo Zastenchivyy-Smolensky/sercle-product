@@ -2,7 +2,7 @@ class Product < ApplicationRecord
     attachment :image
     belongs_to :user
     has_many :favorites
-    has_many :comments
+    has_many :comments, dependent: :destroy
     with_options presence: true do
         validates :title
         validates :content
