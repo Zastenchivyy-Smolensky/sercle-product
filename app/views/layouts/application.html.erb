@@ -6,9 +6,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_importmap_tags %>
+    <script src="/js/custom.js"></script>
   </head>
 
   <body>
@@ -27,36 +29,36 @@
       <%= link_to root_path, class: "navbar-item"  do %>
         <h1 class="title is-4" style="font-family: cursive;">portfolio-land</h1>
       <% end %>
-      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+      <div class="navbar-burger burger" data-target="navbarMenuHeroC">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
     <% if user_signed_in? %>
-     <div class="navbar-menu">
-      <div class="navbar-item">
-        <%= link_to 'プロダクト一覧', products_path, class: "navbar-item button is-warning is-light" %>
-      </div>
-      <div class="navbar-item">
-        <%= link_to 'プロダクト投稿', new_product_path, class: "navbar-item button is-warning is-light" %>
-      </div>
-      <div class="narbar-end">
+      <div id="navbarMenuHeroC" class="navbar-menu">
         <div class="navbar-item">
-          <div class="field is-grouped">
-            <p class="control">
-              <%= link_to 'プログラマー一覧', users_path, class: "button is-warning is-light" %>
-            </p>
-            <p class="control">
-              <%= link_to 'マイページ', user_path(current_user), class: "button is-warning is-light" %>
-            </p>
-            <p class="control">
-              <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
-            </p>
+          <%= link_to 'プロダクト一覧', products_path, class: "navbar-item button is-warning is-light" %>
+        </div>
+        <div class="navbar-item">
+          <%= link_to 'プロダクト投稿', new_product_path, class: "navbar-item button is-warning is-light" %>
+        </div>
+        <div class="narbar-end">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              <p class="control">
+                <%= link_to 'プログラマー一覧', users_path, class: "button is-warning is-light" %>
+              </p>
+              <p class="control">
+                <%= link_to 'マイページ', user_path(current_user), class: "button is-warning is-light" %>
+              </p>
+              <p class="control">
+                <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-     </div>
       <% else %>
       <div class="navbar-menu" id="navbarExampleTransparentExample">
         <div class="navbar-item">

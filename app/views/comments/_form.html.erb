@@ -1,5 +1,5 @@
   <%= form_with(model:[product, comment], local:false ) do |f| %>
-  <div id="comments-error">
+  <div id="comments_error">
     <%= render 'layouts/error_messages', model: f.object %>
   </div>
     <%= f.text_area :comment, :size=>"60x3",placeholder: "コメントをここ" %>

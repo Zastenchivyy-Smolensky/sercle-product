@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
       flash.now[:notice] = "コメントを投稿しました"
       render :product_comments
     else
-      render "products/show"
+      render :error
     end
   end
 
