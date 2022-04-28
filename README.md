@@ -9,6 +9,7 @@
   <li>javascript(jquery)</li>
   <li>bulma rails</li>
 </ol>
+
 <h1>機能</h1>
 <ul>
   <h3>基本機能</h3>
@@ -30,5 +31,182 @@
 </ul>
 
 <h1>カラム</h1>
+<h2>テーブル Products</h2>
+<table border="1">
+  <tr>
+    <th></th>
+    <th>カラム</th>
+  </tr>
+  <tr>
+    <td>Primary key</td>
+    <td>id</td>
+  </tr>
+  <tr>
+    <td>Foreign key</td>
+    <td>user_id</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>title</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>content</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>image_id</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>span</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>tech</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>commitment</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>github</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>link</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>updated_at</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>created_at</td>
+  </tr>
+</table>
 
-<table></table>
+<h2>テーブル Users</h2>
+<table border="1">
+  <tr>
+    <th></th>
+    <th>カラム</th>
+  </tr>
+  <tr>
+    <td>Primary key</td>
+    <td>id</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>username</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>email</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>profile_image_id</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>profile</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>created_at</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>updated_at</td>
+  </tr>
+</table>
+
+<h2>テーブル favrites</h2>
+<table border="1">
+  <tr>
+    <th></th>
+    <th>カラム</th>
+  </tr>
+  <tr>
+    <td>Primary key</td>
+    <td>id</td>
+  </tr>
+  <tr>
+    <td>Foreign key</td>
+    <td>user_id</td>
+  </tr>
+  <tr>
+    <td>Foreign key</td>
+    <td>created_at</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>created_at</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>updated_at</td>
+  </tr>
+</table>
+
+<h2>テーブル relationships</h2>
+<table border="1">
+  <tr>
+    <th></th>
+    <th>カラム</th>
+  </tr>
+  <tr>
+    <td>Primary key</td>
+    <td>id</td>
+  </tr>
+  <tr>
+    <td>Foreign key</td>
+    <td>following_id</td>
+  </tr>
+  <tr>
+    <td>Foreign key</td>
+    <td>follower_id</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>created_at</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>updated_at</td>
+  </tr>
+</table>
+
+<h2>テーブル comments</h2>
+<table border="1">
+  <tr>
+    <th></th>
+    <th>カラム</th>
+  </tr>
+  <tr>
+    <td>Primary key</td>
+    <td>id</td>
+  </tr>
+  <tr>
+    <td>Foreign key</td>
+    <td>user_id</td>
+  </tr>
+  <tr>
+    <td>Foreign key</td>
+    <td>product_id</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>comment</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>created_at</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>updated_at</td>
+  </tr>
+</table>
