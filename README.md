@@ -6,7 +6,7 @@
   <li>ruby on rails</li>
   <li>html</li>
   <li>scss</li>
-  <li>javascript(jquery)</li>
+  <li>jquery</li>
   <li>bulma rails</li>
 </ol>
 
