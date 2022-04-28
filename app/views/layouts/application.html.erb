@@ -24,7 +24,7 @@
       <p class="alert"><%= alert %></p>
     </div>
   <% end %>
-  <nav class="navbar is-warning">
+  <nav class="navbar is-danger">
     <div class="navbar-brand">
       <%= link_to root_path, class: "navbar-item"  do %>
         <h1 class="title is-4" style="font-family: cursive;">portfolio-land</h1>
@@ -71,10 +71,7 @@
      
     <% end %>
   </nav>
-    <main>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+  
     <%= yield %>
-    </main>
   </body>
 </html>

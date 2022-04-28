@@ -31,6 +31,43 @@
                   <tr>
                     <td><%= simple_format @product.content %></td>
                   </tr>
+                  <tr>
+                    <th>アプリの制作期間</th>
+                  </tr>
+                  <tr>
+                    <td><%=@product.span %></td>
+                  </tr>
+                  
+                  <tr>
+                    <th>技術スタック</th>
+                  </tr>
+                  <tr>
+                    <td><%= simple_format @product.tech %></td>
+                  </tr>
+
+                  <tr>
+                    <th>githubのリンク</th>
+                  </tr>
+                  <tr>
+                    <td><%= simple_format @product.github %></td>
+                  </tr>
+
+                  <tr>
+                    <th>リンク</th>
+                  </tr>
+                  <tr>
+                    <td><%= simple_format @product.link %></td>
+                  </tr>
+
+                  <tr>
+                    <th>こだわり</th>
+                  </tr>
+                  <tr>
+                    <td><%= simple_format @product.commitment %></td>
+                  </tr>
+                  
+
+
                 </table>
                  <div id="favorite_buttons_<%= @product.id %>">
                     <%= render 'favorites/favorite', product: @product %>
