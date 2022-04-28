@@ -40,7 +40,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
-gem 'webpacker', '~> 4.0'
+gem 'webpacker', '~> 5.0'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -82,4 +82,3 @@ gem "bulma-rails"
 group :production do
   gem 'pg'
 end
-gem 'webpacker',    '~> 4.0'
