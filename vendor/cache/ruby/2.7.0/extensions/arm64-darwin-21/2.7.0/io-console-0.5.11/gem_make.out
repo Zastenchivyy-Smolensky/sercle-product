@@ -1,0 +1,20 @@
+current directory: /Users/kageyama/Desktop/sercle/portfolio/vendor/cache/ruby/2.7.0/gems/io-console-0.5.11/ext/io/console
+/Users/kageyama/.rbenv/versions/2.7.2/bin/ruby -I /Users/kageyama/.rbenv/versions/2.7.2/lib/ruby/site_ruby/2.7.0 -r ./siteconf20220429-78488-1frlplp.rb extconf.rb
+checking for termios.h... yes
+checking for cfmakeraw() in termios.h... yes
+checking for sys/ioctl.h... yes
+checking for HAVE_RUBY_FIBER_SCHEDULER_H... no
+checking for rb_scheduler_timeout()... no
+creating Makefile
+
+current directory: /Users/kageyama/Desktop/sercle/portfolio/vendor/cache/ruby/2.7.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\= clean
+
+current directory: /Users/kageyama/Desktop/sercle/portfolio/vendor/cache/ruby/2.7.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\=
+compiling console.c
+linking shared-object io/console.bundle
+
+current directory: /Users/kageyama/Desktop/sercle/portfolio/vendor/cache/ruby/2.7.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 console.bundle ./.gem.20220429-78488-pezm9x/io
