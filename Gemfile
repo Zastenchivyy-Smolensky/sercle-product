@@ -67,7 +67,6 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 group :test do
