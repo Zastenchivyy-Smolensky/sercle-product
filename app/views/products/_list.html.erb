@@ -1,0 +1,50 @@
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @products.each do |product| %>
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-image">
+                          <figure class="image is-4by3">
+                            <%= link_to product_path(product) do %>
+                                <%= attachment_image_tag product, :image %>
+                            <% end %>
+                          </figure>
+                        </div>
+                         <div id="favorite_buttons_<%= product.id%>">
+                          <%= render 'favorites/favorite', product: product %>
+                        </div>
+                        <div class="media-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <figure class="image is-48x48">
+                                        <%= attachment_image_tag product.user, :profile_image, fallback: "no-image.png" %>
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <div class="title"><%= link_to product.user.username, user_path(product.user) %></div>
+                                </div>
+
+                             <% if user_signed_in? %>
+                              <% if current_user != product.user %>
+                                <% if product.user.followed_by?(current_user) %>
+                                    <p><%= button_to 'フォロー済み', user_relationships_path(product.user.id), class:"button is-success", method: :delete %></p>
+                                  <% else %>
+                                    <p><%= button_to "フォローする", user_relationships_path(product.user.id), class:"button is-success",method: :post %></p>
+                                <% end %>
+                              <% end %>
+                            <% else %>
+                            <% end %>
+                            </div>
+
+
+                            <div class="content">
+                                <time><%= product.updated_at.strftime("%Y-%m-%d %H:%M")%></time>更新
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</section>
