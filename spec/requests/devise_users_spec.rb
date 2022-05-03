@@ -44,10 +44,15 @@ RSpec.describe "USserAuthentications", type: :request do
     describe "ログアウトのテスト" do
         it "ログアウトできること" do
             user = FactoryBot.create(:user)
-            post new_user_session_path, params:{session: {email: user.email, password: user.password}}
+            post new_user_session_path, params: {session: {email: user.email, encrypted_password: user.password } }
             expect(login_in?).to be_truthy
             delete destroy_user_session_path
-            expect(login_in?).to_not be_truthy
+            expect(login_in?).to_not be_falsey
+        end
+        it "2回連続でログアウトしてもエラーにならないこと" do
+            delete destroy_user_session_path
+            delete destroy_user_session_path
+            expect(response).to redirect_to root_url
         end
     end
 end

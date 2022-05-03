@@ -36,4 +36,13 @@ RSpec.describe "Products", type: :request do
       expect(response.body).to include "新規登録画面"
     end
   end
+
+  describe "編集ページ" do
+    let!(:user){FactoryBot.create(:user)}
+    let!(:product){FactoryBot.create(:product)}
+    it "編集ページのタイトルが描画されているか" do
+      get edit_product_path(product)
+      expect(response.body).to include "プロダクト編集"
+    end
+  end
 end
