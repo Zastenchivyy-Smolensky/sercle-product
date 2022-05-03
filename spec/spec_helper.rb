@@ -58,7 +58,7 @@ RSpec.configure do |config|
   # the `--only-failures` and `--next-failure` CLI options. We recommend
   # you configure your source control system to ignore this file.
   config.example_status_persistence_file_path = "spec/examples.txt"
-  
+
   # Limits the available syntax to the non-monkey patched syntax that is
   # recommended. For more details, see:
   # https://relishapp.com/rspec/rspec-core/docs/configuration/zero-monkey-patching-mode
@@ -91,6 +91,4 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-  require 'rails_helper'
-
 end
