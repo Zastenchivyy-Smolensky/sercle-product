@@ -37,12 +37,43 @@ RSpec.describe "Products", type: :request do
     end
   end
 
-  describe "編集ページ" do
-    let!(:user){FactoryBot.create(:user)}
-    let!(:product){FactoryBot.create(:product)}
-    it "編集ページのタイトルが描画されているか" do
-      get edit_product_path(product)
-      expect(response.body).to include "プロダクト編集"
+
+  describe "プロダクトの新規登録", type: :system do
+    before do
+      @product = FactoryBot.build(:product)
+      @user = FactoryBot.build(:user)
+    end
+    describe "#create " do 
+      let!(:user) {FactoryBot.create(:user)}
+      let!(:product) {FactoryBot.create(:product)}
+      it "投稿ページのタイトルが描画されていること" do
+        sign_in(user)
+        get new_product_path
+        expect(response.body).to include "新規プロダクト作成"
+      end
+      context "無効な場合" do
+        it "無効な値だと投稿されない" do
+          sign_in(user)
+          expect{
+            post products_path, params:{product: {title: "", content: product.content, tech: "product",span: 1, image: "", github:"", link:"", commitment:"" }}
+          }.to_not change(Product, :count)
+        end
+      end
+      context "有効である場合" do
+        let!(:product_params) {{product:{title: product.title, content:product.content, tech: product.tech, span: product.span, 
+          image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/image.jpeg')),github: product.github, link: product.link,commitment: product.commitment}}}
+        it "投稿数" do
+          sign_in(user)
+          expect{
+            post products_path, params:product_params
+          }.to change(Product, :count).by 1
+        end
+        it "フラッシュメッセージが表示されているか?" do
+          post products_path, params:product_params
+          expect(flash).to be_any
+        end
+
+      end
     end
   end
 end
