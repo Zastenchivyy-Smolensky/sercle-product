@@ -137,7 +137,15 @@ RSpec.describe "Products", type: :request do
       let!(:user) {FactoryBot.create(:user)}
       let!(:product) {FactoryBot.create(:product)}
       let(:other_user) {FactoryBot.create(:archer)}
+      let!(:product_params) {{product:{title: product.title, content:product.content, tech: product.tech, span: product.span, 
+        image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/image.jpeg')),github: product.github, link: product.link,commitment: product.commitment}}}
       context "ログイン状態ではないとき" do
+        it "削除リンクが表示されないこと" do
+          
+          log_in(user)
+          visit users_path(product)
+          expect(response).to_not have_link "このプロダクトを削除する"
+        end
         it "削除できないこと" do
           expect{
             delete product_path(product)
@@ -148,6 +156,14 @@ RSpec.describe "Products", type: :request do
           expect(response).to redirect_to new_user_session_path
         end
       end
+      context "adminユーザではない場合" do
+        it "削除はできないこと" do
+          log_in(user)
+          expect{
+            delete product_path(product)
+          }.to_not change(Product, :count)
+        end
+      end 
       context "adminユーザでログイン状態の場合" do
         it "削除できること" do
           sign_in(user)
