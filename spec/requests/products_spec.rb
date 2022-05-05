@@ -110,12 +110,29 @@ RSpec.describe "Products", type: :request do
           sign_in(user)
           get edit_product_path(product)
           patch product_path(product), params:{product:{title: "", content: product.content, tech: "product",span: 1, image: "", github:"", link:"", commitment:"" }}
-          # pending "ここは保留"
-          # expect(response.body).to include "プロダクト編集"
+          expect(response.body).to include "プロダクト編集"
         end
-        
+      end
+
+      context "有効な値の場合" do
+        before do
+          @title = 'Foo-Bar'
+          @content = 'Test'
+          @span = 1
+          @tech ="Test"
+          @image = ""
+          @github = "test.com"
+          @link = "test.com"
+          @commitment = "testtest"
+          patch product_path(product), params: { product: { title: @title, content: @content, span: @span, image: @image,
+                                                            tech: @tech, github: @github, link: @link, commitment: @commitment } }
+        end
+        it '更新できること' do
+          product.reload
+        end
       end
     end
+
     describe "削除機能テスト" do
       let!(:user) {FactoryBot.create(:user)}
       let!(:product) {FactoryBot.create(:product)}
@@ -130,7 +147,12 @@ RSpec.describe "Products", type: :request do
           delete product_path(product)
           expect(response).to redirect_to new_user_session_path
         end
-        it "投稿したユーザではない場合" do
+      end
+      context "adminユーザでログイン状態の場合" do
+        it "削除できること" do
+          sign_in(user)
+          visit user_path(product)
+          expect{delete product_path(product)}.to change(Product, :count).by(0)
         end
       end
     end
