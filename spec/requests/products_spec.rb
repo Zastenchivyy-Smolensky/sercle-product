@@ -116,19 +116,21 @@ RSpec.describe "Products", type: :request do
 
       context "有効な値の場合" do
         before do
-          @title = 'Foo-Bar'
+          @title = 'test1'
           @content = 'Test'
           @span = 1
           @tech ="Test"
-          @image = ""
           @github = "test.com"
           @link = "test.com"
           @commitment = "testtest"
-          patch product_path(product), params: { product: { title: @title, content: @content, span: @span, image: @image,
+          put product_path(product), params: { product: { title: @title, content: @content, span: @span, image: "",
                                                             tech: @tech, github: @github, link: @link, commitment: @commitment } }
         end
         it '更新できること' do
-          product.reload
+          sign_in(user)
+          get edit_product_path(product)
+          visit edit_product_path(product)
+          expect(product.reload.title).to eq "test1"
         end
       end
     end
