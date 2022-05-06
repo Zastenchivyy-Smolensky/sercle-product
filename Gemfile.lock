@@ -313,6 +313,7 @@ DEPENDENCIES
   pg
   puma (~> 5.0)
   rails (~> 6.0)
+  rake
   refile!
   refile-mini_magick
   rspec-rails
