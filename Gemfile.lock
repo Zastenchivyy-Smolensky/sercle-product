@@ -222,7 +222,7 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
       zeitwerk (~> 2.5)
-    rake (13.0.6)
+    rake (13.0.1)
     refile-mini_magick (0.2.0)
       mini_magick (~> 4.0)
       refile (~> 0.5)
@@ -339,7 +339,7 @@ DEPENDENCIES
   pg
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.3)
-  rake (~> 13.0.6)
+  rake (~> 13.0.1)
   refile!
   refile-mini_magick
   rspec-rails
