@@ -123,14 +123,19 @@ RSpec.describe "Products", type: :request do
           @github = "test.com"
           @link = "test.com"
           @commitment = "testtest"
-          put product_path(product), params: { product: { title: @title, content: @content, span: @span, image: "",
-                                                            tech: @tech, github: @github, link: @link, commitment: @commitment } }
+
         end
         it '更新できること' do
           sign_in(user)
-          get edit_product_path(product)
-          visit edit_product_path(product)
-          expect(product.reload.title).to eq "test1"
+          put product_path(product), params: { product: { title: @title, content: @content, span: @span, image: "",
+            tech: @tech, github: @github, link: @link, commitment: @commitment } }
+          expect(product.reload.title).to eq 'test1'
+          expect(product.reload.content).to eq 'Test'
+          expect(product.reload.span).to eq 1
+          expect(product.reload.tech).to eq 'Test'
+          expect(product.reload.github).to eq 'test.com'
+          expect(product.reload.link).to eq 'test.com'
+          expect(product.reload.commitment).to eq 'testtest'
         end
       end
     end
@@ -143,7 +148,6 @@ RSpec.describe "Products", type: :request do
         image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/image.jpeg')),github: product.github, link: product.link,commitment: product.commitment}}}
       context "ログイン状態ではないとき" do
         it "削除リンクが表示されないこと" do
-          
           log_in(user)
           visit users_path(product)
           expect(response).to_not have_link "このプロダクトを削除する"
