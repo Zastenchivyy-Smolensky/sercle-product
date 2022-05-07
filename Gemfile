@@ -11,7 +11,6 @@ gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
 gem "rake", "~> 13.0.1"
- gem "concurrent-ruby", "~> 1.1.10"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
