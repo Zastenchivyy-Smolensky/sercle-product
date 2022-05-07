@@ -89,12 +89,12 @@ RSpec.describe "Products", type: :request do
     describe "編集ページのアクセステスト" do
       let!(:product) {FactoryBot.create(:product)}
       let!(:user) {FactoryBot.create(:user)}
-      it "編集ページのタイトルが描画されていること" do
+      it '編集ページのタイトルが描画されていること' do
         sign_in(user)
         get edit_product_path(product)
       end
-      context "無効なデータの場合" do
-        it "更新できない" do
+      context '無効なデータの場合' do
+        it '更新できない' do
           patch product_path(product), params:{product:{title: "", content: product.content, tech: "product",span: 1, image: "", github:"", link:"", commitment:"" }}
           product.reload
           expect(product.title).to_not eq ""
@@ -119,16 +119,15 @@ RSpec.describe "Products", type: :request do
           @title = 'test1'
           @content = 'Test'
           @span = 1
+          @image = Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/image1.jpeg'))
           @tech ="Test"
           @github = "test.com"
           @link = "test.com"
           @commitment = "testtest"
-
         end
         it '更新できること' do
           sign_in(user)
-          put product_path(product), params: { product: { title: @title, content: @content, span: @span, image: "",
-            tech: @tech, github: @github, link: @link, commitment: @commitment } }
+          put product_path(product), params: { product: { title: @title, content: @content, span: @span, image: @image, tech: @tech, github: @github, link: @link, commitment: @commitment } }
           expect(product.reload.title).to eq 'test1'
           expect(product.reload.content).to eq 'Test'
           expect(product.reload.span).to eq 1
