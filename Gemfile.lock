@@ -304,6 +304,7 @@ DEPENDENCIES
   bootstrap (~> 4.5)
   bulma-rails
   capybara
+  concurrent-ruby (~> 1.1.10)
   debug
   devise
   factory_bot_rails
