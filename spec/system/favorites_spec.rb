@@ -6,10 +6,11 @@ RSpec.describe 'Favorites', type: :system do
     end
 
     describe '#create, #describe', js: true do
+        let!(:user) {FactoryBot.create(:user)}
+        let!(:product) {FactoryBot.create(:product)}
        context "いいねをクリックしたとき" do
            it "いいねできる" do
-            sign_in(@user)
-            visit products_path
+            sign_in(user)
            end
        end
     end

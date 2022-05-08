@@ -1,6 +1,7 @@
 FactoryBot.define do
-    factory :favorite do
+    factory :comment do
         association :user
         association :product
+        comment {"aaaa"}
     end
 end
