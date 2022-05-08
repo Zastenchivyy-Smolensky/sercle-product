@@ -1,12 +1,14 @@
 <% if user_signed_in? %>
     <% if product.favorited_by?(current_user) %>
-            <%= link_to product_favorites_path(product),class:"fas fa-heart" , method: :delete, remote: true do %>
-            <span><%= product.favorites.count%></span>
+            <%= link_to product_favorites_path(product) , method: :delete, remote: true do %>
+            <span><i class="fa fa-heart unlike-btn"></i></span>
         <% end %>
+        <span><%= product.favorites.count%></span>
         <% else %>
-            <%= link_to product_favorites_path(product),class: "far fa-heart", method: :post, remote: true do %>
-                <span><%= product.favorites.count%></span>
+            <%= link_to product_favorites_path(product), method: :post, remote: true do %>
+               <span><i class="fa fa-heart like-btn"></i></span>
         <% end %>
+        <span><%= product.favorites.count%></span>
 <% end %>
 <% else %>
 <p><span>いいね数</span><%= product.favorites.count%></p>
