@@ -11,8 +11,6 @@ RSpec.describe 'Favorites', type: :system do
        context "いいねをクリックしたとき" do
            it "いいねできる" do
             sign_in(user)
-            visit root_path
-            
            end
        end
     end

@@ -6,10 +6,5 @@ RSpec.describe "コメント", type: :system do
         sign_in user
         visit new_product_path
         post products_path(product)
-        get product_path(product)
-    end
-
-    it "コメントをすること" do
-        
     end
 end
