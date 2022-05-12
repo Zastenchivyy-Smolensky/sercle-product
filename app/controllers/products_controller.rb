@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @comment = Comment.new
   end
-  def edit 
+  def edit
     @product = Product.find(params[:id])
     if @product.user != current_user
       redirect_to product_path, alert: "不正なアクセスです"
