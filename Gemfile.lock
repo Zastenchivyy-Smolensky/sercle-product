@@ -25,14 +25,12 @@ GEM
       net-smtp
     actionmailer (7.0.3)
       actionpack (= 7.0.3)
-      actionview (= 7.0.3)
       activejob (= 7.0.3)
       mail (~> 2.5, >= 2.5.4)
       net-imap
       net-pop
       net-smtp
     actionpack (7.0.3)
-      actionview (= 7.0.3)
       rack (~> 2.0, >= 2.2.0)
       rack-test (>= 0.6.3)
     actiontext (7.0.3)
@@ -40,7 +38,6 @@ GEM
       activerecord (= 7.0.3)
       activestorage (= 7.0.3)
       globalid (>= 0.6.0)
-    actionview (7.0.3)
     activejob (7.0.3)
       globalid (>= 0.3.6)
     activemodel (7.0.3)
@@ -155,7 +152,6 @@ GEM
       actionmailer (= 7.0.3)
       actionpack (= 7.0.3)
       actiontext (= 7.0.3)
-      actionview (= 7.0.3)
       activejob (= 7.0.3)
       activemodel (= 7.0.3)
       activerecord (= 7.0.3)
@@ -241,7 +237,6 @@ GEM
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
-      actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
