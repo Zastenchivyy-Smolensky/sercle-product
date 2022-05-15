@@ -10,13 +10,11 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    autoprefixer-rails (10.4.7.0)
     bcrypt (3.1.17)
     bindex (0.8.1)
     bootsnap (1.11.1)
       msgpack (~> 1.2)
     bootstrap (4.6.1)
-      autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
     bulma-rails (0.9.3)
