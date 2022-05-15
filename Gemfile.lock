@@ -10,7 +10,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    actiontext (6.1.6)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (10.4.7.0)
@@ -79,7 +78,6 @@ GEM
     puma (5.6.4)
    
     rails (6.1.6)
-      actiontext (= 6.1.6)
       bundler (>= 1.15.0)
       railties (= 6.1.6)
       sprockets-rails (>= 2.0.0)
