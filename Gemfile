@@ -36,7 +36,6 @@ gem "stimulus-rails"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
 gem 'webpacker', '~> 5.0'
 
 # Use Sass to process CSS
