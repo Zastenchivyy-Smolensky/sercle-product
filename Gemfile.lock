@@ -11,7 +11,6 @@ GEM
   remote: https://rubygems.org/
   specs:
     bootsnap (1.11.1)
-      msgpack (~> 1.2)
     bootstrap (4.6.1)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
@@ -56,7 +55,6 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2022.0105)
     mini_magick (4.11.0)
-    msgpack (1.5.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     netrc (0.11.0)
